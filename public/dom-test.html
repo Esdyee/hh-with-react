@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS Performance Test</title>
+</head>
+<body>
+  <button id="add-items">Add Items</button>
+  <button id="update-items">Update Items</button>
+  <div id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+    const addItemsButton = document.getElementById('add-items');
+    const updateItemsButton = document.getElementById('update-items');
+
+    addItemsButton.addEventListener('click', () => {
+      container.innerHTML = '';
+      for (let i = 0; i < 20000; i++) {
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.textContent = `Item ${i}`;
+        container.appendChild(item);
+      }
+    });
+
+    updateItemsButton.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      items.forEach((item, index) => {
+        item.textContent = `Updated Item ${index}`;
+      });
+    });
+  </script>
+</body>
+</html>

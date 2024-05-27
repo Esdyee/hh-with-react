@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <h1>Test</h1>
+    </body>
+    <script>
+
+        function addClass(els, classname) {
+            if(!Array.isArray(els)) {
+                throw new Error("실제 element 형태로 전달해야 합니다.");
+            }
+
+            els.forEach(el => {
+                el.classList.add(classname);
+            });
+        }
+
+        function foo() {
+            try {
+                addClass(document.querySelector("li"));
+            } catch (error) {
+                console.error("에러 발생", "test", error);
+            }
+        }
+
+        foo();
+    </script>
+</html>
+
