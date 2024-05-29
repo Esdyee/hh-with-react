@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import { Editor as TinyMCEEditor } from 'tinymce';
 import PrimaryButton from "../components/PrimaryButton";
 import JsonModal from "../components/JsonModeal";
 import debounce from "lodash.debounce";
@@ -22,19 +23,19 @@ const EditorTest = () => {
     // );
 
     // Handler function that will be called on editor change
-    const handleEditorChange = (content, editor) => {
+    const handleEditorChange = (content: string, editor: TinyMCEEditor) => {
         if (!isComposing.current) {
           setEditorValue(content);
         }
       };
-    
+
     //   const handleCompositionStart = () => {
     //     if (!compositionStarted.current) {
     //       isComposing.current = true;
     //       compositionStarted.current = true;
     //     }
     //   };
-    
+
     //   const handleCompositionEnd = (content, editor) => {
     //     isComposing.current = false;
     //     compositionStarted.current = false;
