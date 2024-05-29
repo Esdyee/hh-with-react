@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import PrimaryButton from "../components/PrimaryButton";
 import JsonModal from "../components/JsonModeal";
-import debounce from "lodash.debounce";
+// import debounce from "lodash.debounce";
 
 const EditorTest = () => {
     const [showModal, setShowModal] = useState(false);
@@ -11,7 +11,7 @@ const EditorTest = () => {
     const [editorValue, setEditorValue] = useState("");
 
     const isComposing = useRef(false); // isRef?? 왜 쓰는거지?
-    const compositionStarted = useRef(false);
+    // const compositionStarted = useRef(false);
 
     // Debounced function to handle editor changes
     // const debouncedHandleEditorChange = useCallback(
@@ -22,19 +22,20 @@ const EditorTest = () => {
     // );
 
     // Handler function that will be called on editor change
-    const handleEditorChange = (content, editor) => {
+    // const handleEditorChange = (content, editor) => {
+    const handleEditorChange = (content: string, editor: Editor) => {
         if (!isComposing.current) {
           setEditorValue(content);
         }
       };
-    
+
     //   const handleCompositionStart = () => {
     //     if (!compositionStarted.current) {
     //       isComposing.current = true;
     //       compositionStarted.current = true;
     //     }
     //   };
-    
+
     //   const handleCompositionEnd = (content, editor) => {
     //     isComposing.current = false;
     //     compositionStarted.current = false;
