@@ -1,7 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import RecoilTest from './pages/RecoilTest';
 import RecoilTestCopy from './pages/RecoilTestCopy';
+import EditorTest from './pages/EditorTest';
 
 
 const router = createBrowserRouter(
@@ -17,6 +18,10 @@ const router = createBrowserRouter(
         {
             path: '/recoil-copy',
             element: <RecoilTestCopy />
+        },
+        {
+            path: '/editor',
+            element: <EditorTest />
         }
     ]
 )

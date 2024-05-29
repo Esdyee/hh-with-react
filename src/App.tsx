@@ -24,6 +24,9 @@ function App() {
                         <li>
                             <Link to="recoil-copy">Recoil Test Copy</Link>
                         </li>
+                        <li>
+                            <Link to="editor">Editor Test</Link>
+                        </li>
                     </ul>
                 </nav>
                 <Outlet />
