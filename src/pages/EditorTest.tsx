@@ -13,7 +13,6 @@ const EditorTest = () => {
 
     const isComposing = useRef(false); // isRef?? 왜 쓰는거지?
     // const compositionStarted = useRef(false);
-
     // Debounced function to handle editor changes
     // const debouncedHandleEditorChange = useCallback(
     //     debounce((content) => {

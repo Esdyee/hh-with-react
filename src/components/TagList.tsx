@@ -21,11 +21,10 @@ const TagList = ({ tags, onTagClick }: TagListProps) => {
                 onTagClick(tag); // API 호출을 보내기 위한 tag처리
             }}
         >
-            {tags.map((tag) => (
-                <div>
+            {tags.map((tag, index) => (
+                <div key={index}>
                 <TagButton
                     isChecked={tag === selectedTag} 
-                    key={tag}
                     onClick={() => setSelectedTag(tag)}>
                     {tag}
                 </TagButton>
