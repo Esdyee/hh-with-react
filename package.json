@@ -21,10 +21,14 @@
     "chromatic": "npx chromatic --project-token=chpt_0cdfe7a3679166b"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^41.4.2",
+    "@ckeditor/ckeditor5-react": "^7.0.0",
     "@fontsource/noto-sans-kr": "^5.0.19",
     "@fullcalendar/core": "^6.1.13",
     "@fullcalendar/daygrid": "^6.1.13",
+    "@fullcalendar/interaction": "^6.1.13",
     "@fullcalendar/react": "^6.1.13",
+    "@fullcalendar/timegrid": "^6.1.13",
     "@storybook/cli": "^8.1.1",
     "@tinymce/tinymce-react": "^5.0.1",
     "express": "^4.19.2",
