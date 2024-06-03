@@ -5,6 +5,7 @@ import RecoilTestCopy from './pages/RecoilTestCopy';
 import EditorTest from './pages/EditorTest';
 import FullCalendarTest from './pages/FullCalendarTest';
 import CKEditorTest from './pages/CKEditorTest';
+import ReactCalendar from './pages/calendar/ReactCalendar';
 
 
 const router = createBrowserRouter(
@@ -32,6 +33,10 @@ const router = createBrowserRouter(
                 {
                     path: '/ckeditor',
                     element: <CKEditorTest />
+                },
+                {
+                    path: '/react-calendar',
+                    element: <ReactCalendar />
                 }
             ]
         },

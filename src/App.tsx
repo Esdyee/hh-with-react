@@ -45,6 +45,9 @@ function App() {
                         <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/ckeditor" ? "bg-gray-300" : ""}`}>
                             <Link to="ckeditor">CKEditor Test</Link>
                         </li>
+                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-calendar" ? "bg-gray-300" : ""}`}>
+                            <Link to="react-calendar">React Calendar</Link>
+                        </li>
                     </ul>
                 </nav>
                 <Outlet />

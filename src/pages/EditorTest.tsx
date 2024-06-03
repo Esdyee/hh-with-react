@@ -49,7 +49,7 @@ const EditorTest = () => {
             {/* youtube 테스트 링크 */}
             {/* https://www.youtube.com/watch?v=b9pkXpKUUKc */}
             <Editor
-                apiKey="h6pdr2thksr5ots4fwosg8i29qqg8i9n2wqlaq7gw1bemag6"
+                apiKey='h6pdr2thksr5ots4fwosg8i29qqg8i9n2wqlaq7gw1bemag6'
                 init={{
                     height: 500,
                     plugins: [

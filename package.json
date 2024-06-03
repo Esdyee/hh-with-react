@@ -23,6 +23,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^41.4.2",
     "@ckeditor/ckeditor5-react": "^7.0.0",
+    "@emotion/react": "^11.11.4",
     "@fontsource/noto-sans-kr": "^5.0.19",
     "@fullcalendar/core": "^6.1.13",
     "@fullcalendar/daygrid": "^6.1.13",
@@ -31,11 +32,15 @@
     "@fullcalendar/timegrid": "^6.1.13",
     "@storybook/cli": "^8.1.1",
     "@tinymce/tinymce-react": "^5.0.1",
+    "axios": "^1.7.2",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.11",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "sass": "^1.77.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
@@ -48,6 +53,7 @@
     "@storybook/react": "^8.1.1",
     "@storybook/react-vite": "^8.1.1",
     "@storybook/test": "^8.1.1",
+    "@tanstack/eslint-plugin-query": "^4.38.0",
     "@types/lodash.debounce": "^4.0.9",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
