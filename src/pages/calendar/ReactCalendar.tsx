@@ -24,7 +24,9 @@ const ReactCalendar: FC<ICalendarProps> = ({  }) => {
         selectedDay={state.selectedDay}
       /> */}
       <section className="calendar">
-        {state.monthesNames.toString()}
+        <pre>
+          {JSON.stringify(state.calendarDaysOfMonth, null, 2)}
+        </pre>
         {/* {state.mode === 'year' && (
           <YearCalendar
             selectedDay={state.selectedDay}

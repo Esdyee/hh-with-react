@@ -48,6 +48,12 @@ function App() {
                         <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-calendar" ? "bg-gray-300" : ""}`}>
                             <Link to="react-calendar">React Calendar</Link>
                         </li>
+                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-hook" ? "bg-gray-300" : ""}`}>
+                            <Link to="react-hook">React Hook Test</Link>
+                        </li>
+                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-quill" ? "bg-gray-300" : ""}`}>
+                            <Link to="react-quill">React Quill Test</Link>
+                        </li>
                     </ul>
                 </nav>
                 <Outlet />
