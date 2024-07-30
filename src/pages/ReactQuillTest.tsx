@@ -12,11 +12,13 @@ const ReactQuillTest: React.FC = () => {
     const [editorHtml, setEditorHtml] = useState<string>("");
     const quillRef = useRef<ReactQuill | null>(null);
 
+    // 에디터 내용이 변경될 때 호출되는 함수
     const handleChange = (html: string) => {
         console.log(html);
         setEditorHtml(html);
     };
 
+    // 제출 버튼을 눌렀을 때 호출되는 함수
     const handleSubmit = () => {
         const editor = quillRef.current?.getEditor();
         if (editor) {
@@ -24,6 +26,7 @@ const ReactQuillTest: React.FC = () => {
         }
     };
 
+    // 에디터 모듈 설정
     const modules = useMemo(() => ({
         // #3 Add "image" to the toolbar
         toolbar: [
@@ -68,6 +71,7 @@ const ReactQuillTest: React.FC = () => {
         [],
     );
 
+    // 에디터에서 사용할 포맷 설정
     const formats = [
         "header",
         "bold",

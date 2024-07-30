@@ -7,6 +7,7 @@ import FullCalendarTest from './pages/FullCalendarTest';
 import CKEditorTest from './pages/CKEditorTest';
 import ReactCalendar from './pages/calendar/ReactCalendar';
 import ReactQuillTest from './pages/ReactQuillTest';
+import ChangeCharacter from './pages/ChangeCharacter';
 
 
 const router = createBrowserRouter(
@@ -42,6 +43,10 @@ const router = createBrowserRouter(
                 {
                     path: '/react-quill',
                     element: <ReactQuillTest />
+                },
+                {
+                    path: '/change-character',
+                    element: <ChangeCharacter />
                 },
             ]
         },
