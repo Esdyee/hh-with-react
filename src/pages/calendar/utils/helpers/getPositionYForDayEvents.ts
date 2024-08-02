@@ -1,4 +1,4 @@
-import { IEvent } from "types/event";
+import { IEvent } from "../../types/event";
 
 export const getPositionYForDayEvents = (dayEvents: IEvent[], prevEventsIds: string[]) => {
   const eventsPositionY: string[] = [];

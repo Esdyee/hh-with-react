@@ -1,6 +1,6 @@
-import { IMonthDay } from "types/date";
-import { IEvent } from "types/event";
-import { checkDateIsEqual, getDateTime, getDifferenceOfTwoDates, shmoment } from "utils/date";
+import { IMonthDay } from "../../types/date";
+import { IEvent } from "../../types/event";
+import { checkDateIsEqual, getDateTime, getDifferenceOfTwoDates, shmoment } from "../../utils/date";
 
 export const getStyledForLongEvent = (daysInterval: IMonthDay[], day: IMonthDay, event: IEvent) => {
   const firstItem = daysInterval[0];

@@ -4,6 +4,10 @@ interface ICalendarProviderProps {
     children: React.ReactNode;
 }
 
+interface Event {
+    isEventCreateInitialize?: boolean;
+}
+
 const CalendarContext = React.createContext({})
 
 
@@ -14,7 +18,7 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
         currentDate: new Date(),
         monthIndex: 3,
         date: new Date().getDate(),
-        events: [],
+        events: [] as Event[],
         users: [],
         programs: [],
         sessions: [],
@@ -79,13 +83,13 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
         },
         filterEvents: state.filterEvents,
         users: state.users,
-        setState: function(newState){
+        setState: function(newState: any){
             setState(prev => ({
                 ...prev,
                 ...newState
             }))
         },
-        setEvents: function (cb) {
+        setEvents: function (cb: ((events: Event[]) => Event[]) | Event[]) {
             setState(prev => ({
                 ...prev,
                 events: typeof cb === "function"
@@ -93,7 +97,7 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
                     : cb
             }))
         },
-        setFilterEvent: function (eventStatusName) {
+        setFilterEvent: function (eventStatusName: string) {
             setState(prev=>{
                 let updatedFilterEvents = [...prev.filterEvents]
                 if(updatedFilterEvents.includes(eventStatusName)){
@@ -108,32 +112,32 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
 
             })
         },
-        setSelectedDate: function (val){
+        setSelectedDate: function (val: any){
             setState(prev => ({
                 ...prev,
                 selectedDate: val
             }))
         },
-        addEvent: function (newEvent) {
-            setState(prev => ({...prev, events: [...prev.events, newEvent]}))
+        addEvent: function (newEvent: Event) {
+            setState((prev: any) => ({...prev, events: [...prev.events, newEvent]}))
         },
-        setSmallCalendarMonth: function (val) {
-            setState(prev => ({...prev, smallCalendarMonth: val}))
+        setSmallCalendarMonth: function (val: number) {
+            setState((prev) => ({...prev, smallCalendarMonth: val}))
         },
-        setCalendar: function (val) {
+        setCalendar: function (val: any) {
             setState(prev => ({...prev, ...val}))
         },
-        setMonthIndex: function (val) {
+        setMonthIndex: function (val: any) {
             setState(prev => ({...prev, monthIndex: val}))
         },
         newEventData: state.newEventData,
-        setNewEventData: (cb) => {
+        setNewEventData: (cb: any) => {
             setState(prev => ({
                 ...prev,
                 newEventData: cb(prev.newEventData)
             }))
         },
-        setTimeRange: (cb) => {
+        setTimeRange: (cb: any) => {
             setState(prev => ({
                 ...prev,
                 newEventData: {
@@ -146,10 +150,10 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
             let now = new Date()
             setState(prev => ({
                 ...prev,
-                events: prev.events.filter(evt=> !evt.isEventCreateInitialize),
+                events: prev.events.filter(evt => 'isEventCreateInitialize' in evt && !evt.isEventCreateInitialize),
                 newEventData: {
                     isOpen: false,
-                    type: "event", // or  task
+                    type: "event", // 또는 "task"
                     title: "",
                     meetingLink: "",
                     isAllDay: false,
@@ -171,7 +175,7 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
                 }
             }))
         },
-        setCalendarView(componentName, query){
+        setCalendarView(componentName: string, query?: any) {
             setState(prev => ({
                 ...prev,
                 calendarView: componentName
@@ -181,7 +185,7 @@ export const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
 
     return (
         <CalendarContext.Provider value={value}>
-            {props.children}
+            {children}
         </CalendarContext.Provider>
     )
 }

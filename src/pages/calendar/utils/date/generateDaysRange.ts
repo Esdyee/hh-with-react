@@ -1,4 +1,4 @@
-import { IMonthDay } from "types/date";
+import { IMonthDay } from "../../types/date";
 import { getDay } from "./getDay";
 
 interface GenerateDaysRangeParams {

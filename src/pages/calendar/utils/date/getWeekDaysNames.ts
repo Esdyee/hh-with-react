@@ -1,5 +1,5 @@
 import { createDate } from './createDate';
-import { IWeekDay } from 'types/date';
+import { IWeekDay } from '../../types/date';
 
 export const getWeekDaysNames = (firstWeekDay: number = 2, locale: string = 'default') => {
   const date = new Date();

@@ -1,4 +1,4 @@
-import { IEvent } from "types/event";
+import { IEvent } from "../../types/event";
 import { checkIsEventsShowInCurrentInterval } from "./checkIsEventsShowInCurrentInterval";
 
 export const getStyledByPositionXForEvent = (dayEvents: IEvent[], currentEvent: IEvent) => {

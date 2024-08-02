@@ -27,17 +27,16 @@ class Shmoment {
   }
   
   add(units: TUnits, value: number) {
-    const currentUnitValue = this.date[getMethodsNames[units]]();
-    this.date = new Date(
-      this.date[setMethodsNames[units]](currentUnitValue + value)
-    );
+    const getMethod = this.date[getMethodsNames[units] as keyof Date] as () => number;
+    const currentUnitValue = getMethod.call(this.date);
+    const setMethod = this.date[setMethodsNames[units] as keyof Date] as (v: number) => number;
+    this.date = new Date(setMethod.call(this.date, currentUnitValue + value));
     return this;
   }
 
   set(units: TUnits, value: number) {
-    this.date = new Date(
-      this.date[setMethodsNames[units]](value)
-    );
+    const setMethod = this.date[setMethodsNames[units] as keyof Date] as (v: number) => void;
+    setMethod.call(this.date, value);
     return this;
   }
 

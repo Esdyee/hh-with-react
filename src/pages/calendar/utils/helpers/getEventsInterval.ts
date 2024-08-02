@@ -1,6 +1,6 @@
-import { IMonthDay } from "types/date";
-import { IEvent } from "types/event";
-import { shmoment } from "utils/date";
+import { IMonthDay } from "../../types/date";
+import { IEvent } from "../../types/event";
+import { shmoment } from "../../utils/date";
 import { checkIsEventsShowInCurrentInterval } from './checkIsEventsShowInCurrentInterval';
 
 export const getEventsInterval = (daysInterval: IMonthDay[], events: IEvent[]) => {
