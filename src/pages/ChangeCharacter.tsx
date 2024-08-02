@@ -67,6 +67,7 @@ const ChangeCharacter = () => {
             </p>
             {/* // divider 넣어줘 */}
             <hr className="my-5" />
+            <div className="mt-5">{parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 })}</div>
             <div>
               {parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 }).map((element, index) => (
                 <pre key={index}>
@@ -76,7 +77,7 @@ const ChangeCharacter = () => {
                 </pre>
               ))}
             </div>
-            <div className="mt-5">{parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 })}</div>
+        
         </>
     );
 };
