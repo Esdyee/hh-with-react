@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./style/ChangeCharacter.css";
 import styled, { StyledComponent } from "@emotion/styled";
+import ReactDOMServer from 'react-dom/server';
 
-const 테스트스타일컴포넌트 = styled.div`
+const 테스트스타일컴포넌트 = styled.span`
     color: orange;
 `;
 
@@ -13,7 +14,7 @@ const ChangeCharacter = () => {
     // const 특수문자들어간문자열 = '*테스트1* 글쓰기$ *안녕* %굵게%';
     interface ParseTextProps {
         text: string;
-        FontColorWrapper: StyledComponent<"div", any>;
+        FontColorWrapper: StyledComponent<"span", any>;
     }
     
     const parseText = ({ text, FontColorWrapper }: ParseTextProps) => {
@@ -66,7 +67,16 @@ const ChangeCharacter = () => {
             </p>
             {/* // divider 넣어줘 */}
             <hr className="my-5" />
-            <div>{parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 })}</div>
+            <div>
+              {parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 }).map((element, index) => (
+                <pre key={index}>
+                  {React.isValidElement(element)
+                    ? ReactDOMServer.renderToStaticMarkup(element)
+                    : String(element)}
+                </pre>
+              ))}
+            </div>
+            <div className="mt-5">{parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 })}</div>
         </>
     );
 };
