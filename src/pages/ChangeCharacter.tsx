@@ -7,77 +7,100 @@ const 테스트스타일컴포넌트 = styled.span`
     color: orange;
 `;
 
+const BoldAndColoredComponent = styled.span`
+    color: orange;
+    font-weight: bold;
+`;
+
 const ChangeCharacter = () => {
     const [특수문자들어간문자열, set특수문자들어간문자열] = useState(
-        "*테스트1* 글쓰기$ *안녕* %굵게%",
+        "^테스트1^ 글쓰기$ ^안녕^ %굵게%",
     );
-    // const 특수문자들어간문자열 = '*테스트1* 글쓰기$ *안녕* %굵게%';
+
     interface ParseTextProps {
         text: string;
         FontColorWrapper: StyledComponent<"span", any>;
+        BoldAndColoredWrapper: StyledComponent<"span", any>;
     }
-    
-    const parseText = ({ text, FontColorWrapper }: ParseTextProps) => {
-        const parts = text.split(/(\*[^*]+\*|\$|%[^%]+%)/g);
-    
+
+    const parseText = ({ text, FontColorWrapper, BoldAndColoredWrapper }: ParseTextProps) => {
+        const parts = text.split(/\n/g); // Split by newline character
+
         return parts.map((part, index) => {
-            if (part.startsWith("*") && part.endsWith("*")) {
-                // * 사이에 있는 문자열은 <FontColorWrapper></FontColorWrapper>으로 치환
-                const content = part.slice(1, -1);
-                return (
-                    <FontColorWrapper key={index}>
-                        {content}
-                    </FontColorWrapper>
-                );
-            } else if (part.startsWith("%") && part.endsWith("%")) {
-                // % 사이에 있는 문자열은 <span class='bold'></span>으로 치환
-                const content = part.slice(1, -1);
-                return (
-                    <span key={index} className="bold">
-                        {content}
-                    </span>
-                );
-            } else if (part === "$") {
-                // $ 는 <br /> 으로 치환
-                return <br key={index} />;
-            } else {
-                return <span key={index}>{part}</span>;
-            }
+            const innerParts = part.split(/(\^[^^]+\^|%[^%]+%|\^[^^]+%[^%]+\^|\^[^^]+%[^%]+%)/g);
+
+            return (
+                <React.Fragment key={index}>
+                    <span>&bull; </span> {/* Bullet point */}
+                    {innerParts.map((innerPart, innerIndex) => {
+                        if (innerPart.startsWith("^") && innerPart.endsWith("^")) {
+                            if (innerPart.includes("%")) {
+                                const content = innerPart.replace(/\^|%/g, '');
+                                return (
+                                    <BoldAndColoredWrapper key={innerIndex}>
+                                        {content}
+                                    </BoldAndColoredWrapper>
+                                );
+                            } else {
+                                const content = innerPart.slice(1, -1);
+                                return (
+                                    <FontColorWrapper key={innerIndex}>
+                                        {content}
+                                    </FontColorWrapper>
+                                );
+                            }
+                        } else if (innerPart.startsWith("%") && innerPart.endsWith("%")) {
+                            const content = innerPart.slice(1, -1);
+                            return (
+                                <span key={innerIndex} className="bold">
+                                    {content}
+                                </span>
+                            );
+                        } else {
+                            return <span key={innerIndex}>{innerPart}</span>;
+                        }
+                    })}
+                    <br /> {/* Line break for each part */}
+                </React.Fragment>
+            );
         });
     };
 
     return (
         <>
-            <input
-                type="text"
+            <textarea
                 style={{
                     width: "500px",
-                    height: "50px",
+                    height: "150px",
                     border: "1px solid #000",
                 }}
                 onChange={(e) => {
                     set특수문자들어간문자열(e.target.value);
                 }}
-            ></input>
+            ></textarea>
             <p>
-                *로 감싼 텍스트는 노란색으로,
+                ^로 감싼 텍스트는 노란색으로,
                 <br />
-                %로 감싼 텍스트는 굵게, <br />
-                $는 줄바꿈으로 치환됩니다.
+                %로 감싼 텍스트는 굵게,
+                <br />
+                ^와 %로 감싼 텍스트는 노란색과 굵게 
             </p>
-            {/* // divider 넣어줘 */}
             <hr className="my-5" />
-            <div className="mt-5">{parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 })}</div>
-            <div>
-              {parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트 }).map((element, index) => (
-                <pre key={index}>
-                  {React.isValidElement(element)
-                    ? ReactDOMServer.renderToStaticMarkup(element)
-                    : String(element)}
-                </pre>
-              ))}
+            <div className="mt-5">
+                {parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트, BoldAndColoredWrapper: BoldAndColoredComponent })}
             </div>
-        
+            <br />
+            <br />
+            <br />
+            <div>
+                {parseText({ text: 특수문자들어간문자열, FontColorWrapper: 테스트스타일컴포넌트, BoldAndColoredWrapper: BoldAndColoredComponent }).map((element, index) => (
+                    <pre key={index}>
+                        {React.isValidElement(element)
+                            ? ReactDOMServer.renderToStaticMarkup(element)
+                            : String(element)}
+                    </pre>
+                ))}
+            </div>
         </>
     );
 };

@@ -27,53 +27,44 @@ const ReactQuillTest: React.FC = () => {
     };
 
     // 에디터 모듈 설정
-    const modules = useMemo(
-        () => ({
-            // #3 Add "image" to the toolbar
-            toolbar: [
-                [{ header: [1, 2, false] }],
-                ["bold", "italic", "underline", "strike", "blockquote"],
-                [
-                    { list: "ordered" },
-                    { list: "bullet" },
-                    { indent: "-1" },
-                    { indent: "+1" },
-                ],
-                ["link", "image"],
-                ["clean"],
+    const modules = useMemo(() => ({
+        // #3 Add "image" to the toolbar
+        toolbar: [
+            [{ header: [1, 2, false] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [
+                { list: "ordered" },
+                { list: "bullet" },
+                { indent: "-1" },
+                { indent: "+1" },
             ],
+            ["link", "image"],
+            ["clean"],
+        ],
 
-            // # 4 Add module and upload function
-            imageUploader: {
-                upload: (file: File) => {
-                    return new Promise((resolve, reject) => {
-                        const formData = new FormData();
-                        formData.append("image", file);
-                        
-                        const testUrl = 'https://www.naver.com';
-
-                        // 테스트를 위해 testUrl을 사용하여 이미지 업로드 시뮬레이션
-                        setTimeout(() => {
-                            resolve(testUrl);
-                        }, 1000); // 1초 지연을 추가하여 실제 업로드와 유사한 경험 제공
-
-                        // fetch(
-                        //     "https://api.imgbb.com/1/upload?key=334ecea9ec1213784db5cb9a14dac265",
-                        //     {
-                        //         method: "POST",
-                        //         body: formData,
-                        //     },
-                        // )
-                        //     .then((response) => response.json())
-                        //     .then((result) => {
-                        //         console.log(result);
-                        //         resolve(result.data.url);
-                        //     })
-                        //     .catch((error) => {
-                        //         reject("Upload failed");
-                        //         console.error("Error:", error);
-                        //     });
-                    });
+        // # 4 Add module and upload function
+        imageUploader: {
+            upload: (file: File) => {
+                return new Promise((resolve, reject) => {
+                    const formData = new FormData();
+                    formData.append("image", file);
+                    fetch(
+                        "https://api.imgbb.com/1/upload?key=334ecea9ec1213784db5cb9a14dac265",
+                        {
+                            method: "POST",
+                            body: formData,
+                        },
+                    )
+                        .then((response) => response.json())
+                        .then((result) => {
+                            console.log(result);
+                            resolve(result.data.url);
+                        })
+                        .catch((error) => {
+                            reject("Upload failed");
+                            console.error("Error:", error);
+                        });
+                });
                 },
             },
         }),
