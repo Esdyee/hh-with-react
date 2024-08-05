@@ -16,14 +16,16 @@
             "^테스트1^ ^%테스트2%^",
         );
 
+        const [불릿옵션, set불릿옵션] = useState(true); 
+
         interface ParseTextProps {
             text: string;
             bulletOption: boolean;
             FontColorWrapper: React.ComponentType<any>;
-            BoldAndColoredWrapper: React.ComponentType<any>;
+            BoldComponent: React.ComponentType<any>;
         }
 
-        const parseText = ({ text, bulletOption = true, FontColorWrapper, BoldAndColoredWrapper }: ParseTextProps) => {
+        const parseText = ({ text, bulletOption = 불릿옵션, FontColorWrapper, BoldComponent }: ParseTextProps) => {
             const parts = text.split(/\n/g); // Split by newline character
 
             return parts.map((part, index) => {
@@ -92,6 +94,9 @@
                         set특수문자들어간문자열(e.target.value);
                     }}
                 ></textarea>
+                <br/>
+                <input type="checkbox" checked={불릿옵션} onChange={(e) => set불릿옵션(e.target.checked)} />불릿옵션
+                <hr className="my-5" />
                 <p>
                     ^로 감싼 텍스트는 노란색으로,
                     <br />
@@ -104,12 +109,12 @@
                     {특수문자들어간문자열}
                 </div> */}
                 <pre className="mt-5">
-                    {parseText({ text: 특수문자들어간문자열, bulletOption: true, FontColorWrapper: 테스트스타일컴포넌트, BoldAndColoredWrapper: BoldComponent })}
+                    {parseText({ text: 특수문자들어간문자열, bulletOption: 불릿옵션, FontColorWrapper: 테스트스타일컴포넌트, BoldComponent: BoldComponent })}
                 </pre>
                 <br />
                 <br />
                 <pre>
-                    {parseText({ text: 특수문자들어간문자열, bulletOption: true, FontColorWrapper: 테스트스타일컴포넌트, BoldAndColoredWrapper: BoldComponent }).map((element, index) => (
+                    {parseText({ text: 특수문자들어간문자열, bulletOption: 불릿옵션, FontColorWrapper: 테스트스타일컴포넌트, BoldComponent: BoldComponent }).map((element, index) => (
                         <pre key={index}>
                             {React.isValidElement(element)
                                 ? ReactDOMServer.renderToStaticMarkup(element)
