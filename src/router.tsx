@@ -8,6 +8,7 @@ import CKEditorTest from './pages/CKEditorTest';
 import ReactCalendar from './pages/calendar/ReactCalendar';
 import ReactQuillTest from './pages/ReactQuillTest';
 import ChangeCharacter from './pages/ChangeCharacter';
+import MultiUpload from './pages/MultiUpload';
 
 
 const router = createBrowserRouter(
@@ -48,6 +49,10 @@ const router = createBrowserRouter(
                     path: '/change-character',
                     element: <ChangeCharacter />
                 },
+                {
+                    path: '/multi-upload',
+                    element: <MultiUpload />
+                }
             ]
         },
 
