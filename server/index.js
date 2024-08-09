@@ -9,18 +9,20 @@ const PORT = 3030;
 // JSON 요청 본문을 파싱하기 위한 미들웨어 추가
 app.use(express.json());
 
-// CORS 에러 방지를 위한 미들웨어 설정
+// CORS 문제 해결을 위한 미들웨어
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   
   if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
+    res.sendStatus(200);
+  } else {
+    next();
   }
-  
-  next();
 });
+
+
 
 // post multi-upload api로 접근하면 multi upload 되도록 만들어 줘
 // multer 설정
@@ -74,10 +76,6 @@ app.post('/token', (req, res) => {
 
 });
 
-
-app.get('/', (req, res) => {
-  res.send('Hello from the server!');
-});
 
 
 app.listen(PORT, () => {

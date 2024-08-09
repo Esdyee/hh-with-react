@@ -1,38 +1,25 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-interface FileGroup {
-  id: string;
-  files: File[];
-}
+const MultiUpload = () => {
+    const [files, setFiles] = useState<File[]>([]);
+    const [uploadStatus, setUploadStatus] = useState<string>("");
 
-const MultiUpload: React.FC = () => {
-    const [fileGroups, setFileGroups] = useState<FileGroup[]>([
-        { id: '그룹1', files: [] },
-        { id: '그룹2', files: [] },
-        { id: '그룹3', files: [] },
-    ]);
-    const [status, setStatus] = useState<string>("");
-
-    const handleFileChange = (groupId: string) => (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-            setFileGroups(prevGroups =>
-                prevGroups.map(group =>
-                    group.id === groupId ? { ...group, files: Array.from(e.target.files!) } : group
-                )
-            );
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files) {
+            setFiles(Array.from(event.target.files));
         }
     };
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setStatus("업로드 중...");
+    const handleUpload = async () => {
+        if (files.length === 0) {
+            setUploadStatus("파일을 선택해주세요.");
+            return;
+        }
 
         const formData = new FormData();
-        fileGroups.forEach(group => {
-            group.files.forEach(file => {
-                formData.append(`files_${group.id}`, file);
-            });
+        files.forEach((file) => {
+            formData.append("files", file);
         });
 
         try {
@@ -45,38 +32,75 @@ const MultiUpload: React.FC = () => {
                     },
                 },
             );
-            setStatus("업로드 성공: " + response.data.message);
+            setUploadStatus("파일 업로드 성공!");
+            console.log(response.data);
         } catch (error) {
-            setStatus("업로드 실패: " + (error as Error).message);
+            setUploadStatus("파일 업로드 실패.");
+            console.error("업로드 오류:", error);
+        }
+    };
+
+    const handleMultiUpload = async () => {
+        const inputs = document.querySelectorAll('input[type="file"]');
+        const formData = new FormData();
+        let fileCount = 0;
+
+        inputs.forEach((input: Element) => {
+            if (input instanceof HTMLInputElement && input.files) {
+                for (let i = 0; i < input.files.length; i++) {
+                    formData.append("files", input.files[i]);
+                    fileCount++;
+                }
+            }
+        });
+
+        if (fileCount === 0) {
+            setUploadStatus("파일을 선택해주세요.");
+            return;
+        }
+
+        try {
+            const response = await axios.post(
+                "http://localhost:3030/upload",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                },
+            );
+            setUploadStatus(`${fileCount}개의 파일 업로드 성공!`);
+            console.log(response.data);
+        } catch (error) {
+            setUploadStatus("파일 업로드 실패.");
+            console.error("업로드 오류:", error);
         }
     };
 
     return (
         <div>
             <h2>다중 파일 업로드</h2>
-            <form onSubmit={handleSubmit}>
-                {fileGroups.map(group => (
-                    <div key={group.id}>
-                        <h3>{group.id}</h3>
-                        <input 
-                            type="file" 
-                            multiple 
-                            onChange={handleFileChange(group.id)} 
-                        />
-                        <div>선택된 파일: {group.files.map(file => file.name).join(", ")}</div>
-                    </div>
+            <input type="file" />
+            <input type="file" />
+            <input type="file" />
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                onClick={handleUpload}
+            >
+                업로드
+            </button>
+            <button
+                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                onClick={handleMultiUpload}
+            >
+                멀티 업로드
+            </button>
+            <p>{uploadStatus}</p>
+            <ul>
+                {files.map((file, index) => (
+                    <li key={index}>{file.name}</li>
                 ))}
-                <button
-                    className="bg-blue-500 text-white p-2 rounded mt-5"
-                    type="submit"
-                >
-                    모두 업로드
-                </button>
-            </form>
-
-            <div className="mt-5">
-                <div>상태: {status}</div>
-            </div>
+            </ul>
         </div>
     );
 };

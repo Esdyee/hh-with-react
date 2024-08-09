@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css"; // 스타일을 추가합니다.
 
 // #1 import quill-image-uploader
 import ImageUploader from "quill-image-uploader";
+import axios from "axios";
 
 // #2 register module
 Quill.register("modules/imageUploader", ImageUploader);
@@ -48,21 +49,15 @@ const ReactQuillTest: React.FC = () => {
                 return new Promise((resolve, reject) => {
                     const formData = new FormData();
                     formData.append("image", file);
-                    fetch(
-                        "https://api.imgbb.com/1/upload?key=334ecea9ec1213784db5cb9a14dac265",
-                        {
-                            method: "POST",
-                            body: formData,
-                        },
-                    )
-                        .then((response) => response.json())
-                        .then((result) => {
-                            console.log(result);
-                            resolve(result.data.url);
+                    console.log(formData);
+                    axios.post("https://api.imgbb.com/1/upload?key=334ecea9ec1213784db5cb9a14dac265", formData)
+                        .then((response) => {
+                            console.log(response.data);
+                            resolve(response.data.data.url);
                         })
                         .catch((error) => {
-                            reject("Upload failed");
-                            console.error("Error:", error);
+                            reject("업로드 실패");
+                            console.error("에러:", error);
                         });
                 });
                 },
