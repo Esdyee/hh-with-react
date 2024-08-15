@@ -1,5 +1,5 @@
-import { IEvent } from "types/event";
-import { checkDateIsEqual, formatDate, shmoment } from "utils/date";
+import { IEvent } from "../../types/event";
+import { checkDateIsEqual, formatDate, shmoment } from "../../utils/date";
 
 export const getStyledByPostionYForEvent = (event: IEvent, dateDay: Date) => {
   const { start, end } = event;

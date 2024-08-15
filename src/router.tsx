@@ -6,6 +6,9 @@ import EditorTest from './pages/EditorTest';
 import FullCalendarTest from './pages/FullCalendarTest';
 import CKEditorTest from './pages/CKEditorTest';
 import ReactCalendar from './pages/calendar/ReactCalendar';
+import ReactQuillTest from './pages/ReactQuillTest';
+import ChangeCharacter from './pages/ChangeCharacter';
+import MultiUpload from './pages/MultiUpload';
 
 
 const router = createBrowserRouter(
@@ -37,6 +40,18 @@ const router = createBrowserRouter(
                 {
                     path: '/react-calendar',
                     element: <ReactCalendar />
+                },
+                {
+                    path: '/react-quill',
+                    element: <ReactQuillTest />
+                },
+                {
+                    path: '/change-character',
+                    element: <ChangeCharacter />
+                },
+                {
+                    path: '/multi-upload',
+                    element: <MultiUpload />
                 }
             ]
         },

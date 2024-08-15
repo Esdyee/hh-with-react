@@ -29,28 +29,44 @@ function App() {
             <div>
                 <nav>
                     <p>{time}</p>
-                    <ul className="flex bg-gray-200 w-full">
-                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/recoil" ? "bg-gray-300" : ""}`}>
-                            <Link to="/recoil">Recoil Test</Link>
-                        </li>
-                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/recoil-copy" ? "bg-gray-300" : ""}`}>
-                            <Link to="recoil-copy">Recoil Test Copy</Link>
-                        </li>
-                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/editor" ? "bg-gray-300" : ""}`}>
-                            <Link to="editor">Editor Test</Link>
-                        </li>
-                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/full-calendar" ? "bg-gray-300" : ""}`}>
-                            <Link to="full-calendar">Full Calendar Test</Link>
-                        </li>
-                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/ckeditor" ? "bg-gray-300" : ""}`}>
-                            <Link to="ckeditor">CKEditor Test</Link>
-                        </li>
-                        <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-calendar" ? "bg-gray-300" : ""}`}>
-                            <Link to="react-calendar">React Calendar</Link>
-                        </li>
-                    </ul>
+                    <div className="flex">
+                        <ul className="flex flex-col bg-gray-200 h-full w-[200px]">
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/recoil" ? "bg-gray-300" : ""}`}>
+                                <Link to="/recoil">Recoil Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/recoil-copy" ? "bg-gray-300" : ""}`}>
+                                <Link to="recoil-copy">Recoil Test Copy</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/editor" ? "bg-gray-300" : ""}`}>
+                                <Link to="editor">Editor Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/full-calendar" ? "bg-gray-300" : ""}`}>
+                                <Link to="full-calendar">Full Calendar Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/ckeditor" ? "bg-gray-300" : ""}`}>
+                                <Link to="ckeditor">CKEditor Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-calendar" ? "bg-gray-300" : ""}`}>
+                                <Link to="react-calendar">React Calendar</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-hook" ? "bg-gray-300" : ""}`}>
+                                <Link to="react-hook">React Hook Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/react-quill" ? "bg-gray-300" : ""}`}>
+                                <Link to="react-quill">React Quill Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/change-character" ? "bg-gray-300" : ""}`}>
+                                <Link to="change-character">Change Character</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/multi-upload" ? "bg-gray-300" : ""}`}>
+                                <Link to="multi-upload">Multi Upload</Link>
+                            </li>
+                        </ul>
+                        <div className="flex-1">
+                            <Outlet />
+                        </div>
+                    </div>
                 </nav>
-                <Outlet />
             </div>
         </div>
     );

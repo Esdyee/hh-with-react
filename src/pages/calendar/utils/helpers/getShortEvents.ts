@@ -1,5 +1,5 @@
-import { IEvent } from "types/event";
-import { getDifferenceOfTwoDates } from "utils/date";
+import { IEvent } from "../../types/event";
+import { getDifferenceOfTwoDates } from "../../utils/date";
 
 export const getShortEvents = (events: IEvent[]) => {
   const shortEvents = events.filter(({ start, end, type }) => {

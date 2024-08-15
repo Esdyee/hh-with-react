@@ -1,4 +1,4 @@
-import { IEvent } from "types/event";
+import { IEvent } from "../../types/event";
 import { getPositionYForDayEvents } from "./getPositionYForDayEvents";
 
 export const getPositionYForWeekEvents = (sortedWeekEvents: IEvent[][]) => {
