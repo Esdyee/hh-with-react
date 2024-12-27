@@ -9,6 +9,7 @@ import ReactCalendar from './pages/calendar/ReactCalendar';
 import ReactQuillTest from './pages/ReactQuillTest';
 import ChangeCharacter from './pages/ChangeCharacter';
 import MultiUpload from './pages/MultiUpload';
+import KakaoTest from './pages/KakaoTest';
 
 
 const router = createBrowserRouter(
@@ -52,6 +53,10 @@ const router = createBrowserRouter(
                 {
                     path: '/multi-upload',
                     element: <MultiUpload />
+                },
+                {
+                    path: '/kakao-test',
+                    element: <KakaoTest />
                 }
             ]
         },

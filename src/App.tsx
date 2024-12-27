@@ -61,6 +61,9 @@ function App() {
                             <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/multi-upload" ? "bg-gray-300" : ""}`}>
                                 <Link to="multi-upload">Multi Upload</Link>
                             </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/kakao-test" ? "bg-gray-300" : ""}`}>
+                                <Link to="kakao-test">Kakao Test</Link>
+                            </li>
                         </ul>
                         <div className="flex-1">
                             <Outlet />

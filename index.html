@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + React + TS</title>
+        <script
+            src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
+            integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            // Kakao.init("660b8c2c774d6812f18edfbe3789771e"); // 사용하려는 앱의 JavaScript 키 입력
+            Kakao.init("660b8c2c774d6812f18edfbe3789771e");
+            Kakao.isInitialized();
+
+            console.log("message", Kakao.isInitialized());
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>
