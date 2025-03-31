@@ -1,15 +1,18 @@
-import { createHashRouter, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import RecoilTest from './pages/RecoilTest';
-import RecoilTestCopy from './pages/RecoilTestCopy';
+import ReactCalendar from './pages/calendar/ReactCalendar';
+import ChangeCharacter from './pages/ChangeCharacter';
+import CircularProgressBarTest from './pages/CircularProgressBarTest';
+import CKEditorTest from './pages/CKEditorTest';
+import DragAndDrop from './pages/DragAndDrop';
 import EditorTest from './pages/EditorTest';
 import FullCalendarTest from './pages/FullCalendarTest';
-import CKEditorTest from './pages/CKEditorTest';
-import ReactCalendar from './pages/calendar/ReactCalendar';
-import ReactQuillTest from './pages/ReactQuillTest';
-import ChangeCharacter from './pages/ChangeCharacter';
-import MultiUpload from './pages/MultiUpload';
 import KakaoTest from './pages/KakaoTest';
+import MultiUpload from './pages/MultiUpload';
+import ReactQuillTest from './pages/ReactQuillTest';
+import RecoilTest from './pages/RecoilTest';
+import RecoilTestCopy from './pages/RecoilTestCopy';
+import SplitView from './pages/SplitView';
 
 
 const router = createBrowserRouter(
@@ -57,6 +60,18 @@ const router = createBrowserRouter(
                 {
                     path: '/kakao-test',
                     element: <KakaoTest />
+                },
+                {
+                    path: '/circular-progress-bar-test',
+                    element: <CircularProgressBarTest />
+                },
+                {
+                    path: '/drag-and-drop',
+                    element: <DragAndDrop />
+                },
+                {
+                    path: '/split-view',
+                    element: <SplitView />
                 }
             ]
         },

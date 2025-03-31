@@ -28,7 +28,7 @@ function App() {
         <div>
             <div>
                 <nav>
-                    <p>{time}</p>
+                    {/* <p>{time}</p> */}
                     <div className="flex">
                         <ul className="flex flex-col bg-gray-200 h-full w-[200px]">
                             <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/recoil" ? "bg-gray-300" : ""}`}>
@@ -63,6 +63,15 @@ function App() {
                             </li>
                             <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/kakao-test" ? "bg-gray-300" : ""}`}>
                                 <Link to="kakao-test">Kakao Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/circular-progress-bar-test" ? "bg-gray-300" : ""}`}>
+                                <Link to="circular-progress-bar-test">Circular Progress Bar Test</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/drag-and-drop" ? "bg-gray-300" : ""}`}>
+                                <Link to="drag-and-drop">Drag And Drop</Link>
+                            </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/split-view" ? "bg-gray-300" : ""}`}>
+                                <Link to="split-view">Split View</Link>
                             </li>
                         </ul>
                         <div className="flex-1">

@@ -2,14 +2,14 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import "./full-calendar.css";
+import "./style/full-calendar.css";
 import { useRef, useState } from "react";
 import {
     DateSelectArg,
     EventApi,
     EventClickArg,
 } from "@fullcalendar/core/index.js";
-import { INITIAL_EVENTS, createEventId } from "./event-util";
+import { INITIAL_EVENTS, createEventId } from "./utils/event-util";
 
 const FullCalendarTest = () => {
     const calendarRef = useRef<FullCalendar>(null);

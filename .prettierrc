@@ -1,14 +1,7 @@
 {
-    "tabWidth": 4,
-    "useTabs": false,
-    "xmlWhitespaceSensitivity": "ignore",
-    "plugins": ["prettier-plugin-xml"],
-    "overrides": [
-        {
-            "files": "*.tsx",
-            "options": {
-                "noUnusedVariables": false
-            }
-        }
-    ]
-}
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2
+  }
+  
