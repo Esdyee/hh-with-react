@@ -10,10 +10,10 @@ import {
   styled,
 } from '@mui/material';
 
-import { Typography } from '@mui/material';
-import Label from '../components/Label';
-import { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
+import { Typography } from '@mui/material';
+import { useState } from 'react';
+import Label from '../components/Label';
 
 const SplitView = () => {
   const [selectedEvent, setSelectedEvent] = useState<string>('');
@@ -37,10 +37,10 @@ const SplitView = () => {
               item
               key={index}
               xs={selectedEvent ? 6 : 3} // 한줄에 4개 보여줄 때
-            //   sx={{
-            //     flexBasis: selectedEvent ? '50%' : '20%',
-            //     maxWidth: selectedEvent ? '50%' : '20%',
-            //   }} // 한줄에 5개 보여줄 때
+              //   sx={{
+              //     flexBasis: selectedEvent ? '50%' : '20%',
+              //     maxWidth: selectedEvent ? '50%' : '20%',
+              //   }} // 한줄에 5개 보여줄 때
             >
               <Card
                 sx={{ height: '100%', maxHeight: '300px' }}
