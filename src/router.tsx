@@ -14,78 +14,80 @@ import RecoilTest from './pages/RecoilTest';
 import RecoilTestCopy from './pages/RecoilTestCopy';
 import SplitView from './pages/SplitView';
 import InfiniteScroll from './pages/InfiniteScroll';
-
+import StartTransitionTest from './startTransitionTest';
 
 const router = createBrowserRouter(
-    [
-        {
-            path: '/',
-            element: <App />,
-            children: [
-                {
-                    path: '/recoil',
-                    element: <RecoilTest />
-                },
-                {
-                    path: '/recoil-copy',
-                    element: <RecoilTestCopy />
-                },
-                {
-                    path: '/editor',
-                    element: <EditorTest />
-                },
-                {
-                    path: '/full-calendar',
-                    element: <FullCalendarTest />
-                },
-                {
-                    path: '/ckeditor',
-                    element: <CKEditorTest />
-                },
-                {
-                    path: '/react-calendar',
-                    element: <ReactCalendar />
-                },
-                {
-                    path: '/react-quill',
-                    element: <ReactQuillTest />
-                },
-                {
-                    path: '/change-character',
-                    element: <ChangeCharacter />
-                },
-                {
-                    path: '/multi-upload',
-                    element: <MultiUpload />
-                },
-                {
-                    path: '/kakao-test',
-                    element: <KakaoTest />
-                },
-                {
-                    path: '/circular-progress-bar-test',
-                    element: <CircularProgressBarTest />
-                },
-                {
-                    path: '/drag-and-drop',
-                    element: <DragAndDrop />
-                },
-                {
-                    path: '/split-view',
-                    element: <SplitView />
-                },
-                {
-                    path: '/infinite-scroll',
-                    element: <InfiniteScroll />
-                }
-            ]
-        },
-
-    ],
+  [
     {
-        basename: '/'
-    }
-)
-
+      path: '/',
+      element: <App />,
+      children: [
+        {
+          path: '/recoil',
+          element: <RecoilTest />,
+        },
+        {
+          path: '/recoil-copy',
+          element: <RecoilTestCopy />,
+        },
+        {
+          path: '/editor',
+          element: <EditorTest />,
+        },
+        {
+          path: '/full-calendar',
+          element: <FullCalendarTest />,
+        },
+        {
+          path: '/ckeditor',
+          element: <CKEditorTest />,
+        },
+        {
+          path: '/react-calendar',
+          element: <ReactCalendar />,
+        },
+        {
+          path: '/react-quill',
+          element: <ReactQuillTest />,
+        },
+        {
+          path: '/change-character',
+          element: <ChangeCharacter />,
+        },
+        {
+          path: '/multi-upload',
+          element: <MultiUpload />,
+        },
+        {
+          path: '/kakao-test',
+          element: <KakaoTest />,
+        },
+        {
+          path: '/circular-progress-bar-test',
+          element: <CircularProgressBarTest />,
+        },
+        {
+          path: '/drag-and-drop',
+          element: <DragAndDrop />,
+        },
+        {
+          path: '/split-view',
+          element: <SplitView />,
+        },
+        {
+          path: '/infinite-scroll',
+          element: <InfiniteScroll />,
+        },
+        {
+          path: '/start-transition-test',
+          element: <StartTransitionTest />,
+        },
+      ],
+    },
+  ],
+  {
+    basename: '/',
+  }
+);
 
 export default router;
