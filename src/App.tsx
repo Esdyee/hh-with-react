@@ -73,6 +73,9 @@ function App() {
                             <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/split-view" ? "bg-gray-300" : ""}`}>
                                 <Link to="split-view">Split View</Link>
                             </li>
+                            <li className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${selectedMenu === "/infinite-scroll" ? "bg-gray-300" : ""}`}>
+                                <Link to="infinite-scroll">Infinite Scroll</Link>
+                            </li>
                         </ul>
                         <div className="flex-1">
                             <Outlet />

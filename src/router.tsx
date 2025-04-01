@@ -13,6 +13,7 @@ import ReactQuillTest from './pages/ReactQuillTest';
 import RecoilTest from './pages/RecoilTest';
 import RecoilTestCopy from './pages/RecoilTestCopy';
 import SplitView from './pages/SplitView';
+import InfiniteScroll from './pages/InfiniteScroll';
 
 
 const router = createBrowserRouter(
@@ -72,6 +73,10 @@ const router = createBrowserRouter(
                 {
                     path: '/split-view',
                     element: <SplitView />
+                },
+                {
+                    path: '/infinite-scroll',
+                    element: <InfiniteScroll />
                 }
             ]
         },
