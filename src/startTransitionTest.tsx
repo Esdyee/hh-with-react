@@ -14,6 +14,9 @@ const StartTransitionTest = () => {
     // 입력값은 즉시 업데이트
     setSearchQuery(query);
 
+    // const results = DATABASE.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+    // setSearchResults(results);
+
     // 무거운 검색 작업은 startTransition으로 감싸기
     startTransition(() => {
       const results = DATABASE.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
@@ -54,3 +57,4 @@ const StartTransitionTest = () => {
 export default StartTransitionTest;
 
 // obsidian://adv-uri?vault=38486a6d522dec99&uid=847b90b4-7071-405c-86e3-7578263cf4ac&filepath=Main%2FReact%2FstartTransition%20Test.md
+// [naver](https://naver.com)
