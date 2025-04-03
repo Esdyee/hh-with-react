@@ -15,6 +15,8 @@ import RecoilTestCopy from './pages/RecoilTestCopy';
 import SplitView from './pages/SplitView';
 import InfiniteScroll from './pages/InfiniteScroll';
 import StartTransitionTest from './startTransitionTest';
+import MySearchPage from './pages/MySearchPage';
+import CreatePage from './pages/CreatePage';
 
 const router = createBrowserRouter(
   [
@@ -81,6 +83,14 @@ const router = createBrowserRouter(
         {
           path: '/start-transition-test',
           element: <StartTransitionTest />,
+        },
+        {
+          path: '/my-search',
+          element: <MySearchPage />,
+        },
+        {
+          path: '/create-page',
+          element: <CreatePage />,
         },
       ],
     },

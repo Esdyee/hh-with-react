@@ -27,17 +27,19 @@ const menuItems: MenuItem[] = [
   { path: '/split-view', label: 'Split View' },
   { path: '/infinite-scroll', label: 'Infinite Scroll' },
   { path: '/start-transition-test', label: 'Start Transition Test' },
+  { path: '/my-search', label: 'My-search' },
+  { path: '/create-page', label: 'Create Page(MCP)' },
 ];
 
 function App() {
-  const time = useTimer(0);
+  const time = useTimer(0); // useTimer 훅 사용 (예시)
   const [selectedMenu, setSelectedMenu] = useState('/');
-  const path = useLocation().pathname;
+  const location = useLocation(); // useLocation 훅 사용
+  const path = location.pathname; // 현재 경로 추출
 
   useEffect(() => {
-    if (path) {
-      setSelectedMenu(path);
-    }
+    // 컴포넌트 마운트 시 또는 경로 변경 시 현재 경로로 selectedMenu 업데이트
+    setSelectedMenu(path);
   }, [path]);
 
   return (
@@ -48,18 +50,28 @@ function App() {
             {/* 메뉴 목록 */}
             <ul className="flex flex-col bg-gray-200 h-full w-[200px]">
               {menuItems.map((item) => (
-                <li
-                  key={item.path}
-                  className={`bg-gray-200 p-2 rounded hover:bg-gray-300 ${
-                    selectedMenu === item.path ? 'bg-gray-300' : ''
-                  }`}
-                >
-                  <Link to={item.path.replace('/', '')}>{item.label}</Link>
+                // li는 이제 구조적인 역할만 함
+                <li key={item.path}>
+                  <Link
+                    // Link의 to 속성은 정의된 path 그대로 사용
+                    to={item.path}
+                    // Link 요소가 전체 영역을 차지하도록 block 속성 추가
+                    // 스타일 (패딩, 호버, 선택 상태)을 Link 요소에 직접 적용
+                    className={`block p-2 hover:bg-gray-300 ${
+                      selectedMenu === item.path
+                        ? 'bg-gray-300 font-bold' // 선택된 메뉴 강조 (예: 배경색 + 굵은 글씨)
+                        : 'bg-gray-200' // 기본 배경색 유지
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
             {/* 컴포넌트 렌더링 */}
-            <div className="flex-1">
+            <div className="flex-1 p-4">
+              {' '}
+              {/* 콘텐츠 영역에 약간의 패딩 추가 (선택 사항) */}
               <Outlet />
             </div>
           </div>
