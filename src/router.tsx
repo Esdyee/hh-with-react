@@ -17,6 +17,8 @@ import InfiniteScroll from './pages/InfiniteScroll';
 import StartTransitionTest from './startTransitionTest';
 import MySearchPage from './pages/MySearchPage';
 import CreatePage from './pages/CreatePage';
+import StepContent from './pages/StepContent';
+import PersistStatePage from './pages/PersistStatePage';
 
 const router = createBrowserRouter(
   [
@@ -91,6 +93,14 @@ const router = createBrowserRouter(
         {
           path: '/create-page',
           element: <CreatePage />,
+        },
+        {
+          path: '/step-content',
+          element: <StepContent />,
+        },
+        {
+          path: '/persist-state',
+          element: <PersistStatePage />,
         },
       ],
     },

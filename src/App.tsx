@@ -27,8 +27,10 @@ const menuItems: MenuItem[] = [
   { path: '/split-view', label: 'Split View' },
   { path: '/infinite-scroll', label: 'Infinite Scroll' },
   { path: '/start-transition-test', label: 'Start Transition Test' },
-  { path: '/my-search', label: 'My-search' },
+  // { path: '/my-search', label: 'My-search' },
   { path: '/create-page', label: 'Create Page(MCP)' },
+  { path: '/step-content', label: 'Step Content' },
+  { path: '/persist-state', label: 'Persist State' },
 ];
 
 function App() {

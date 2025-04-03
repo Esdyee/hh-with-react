@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Tabs, Tab, TextField, Button } from '@mui/material';
+import { Tabs, Tab, TextField, Button, Switch, FormControlLabel, Stack } from '@mui/material';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
@@ -93,7 +93,7 @@ const ButtonSection = styled.div`
   margin-top: 24px;
 `;
 
-const ButtonHeader = styled.div`
+const ButtonHeader = styled(Stack)`
   padding: 16px 24px;
   border-bottom: 1px solid rgba(140, 149, 157, 0.2);
 
@@ -129,9 +129,14 @@ const ActionButtons = styled.div`
 const CreatePage: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
   const [editorContent, setEditorContent] = useState('');
+  const [checked, setChecked] = useState(false);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
   };
 
   return (
@@ -174,8 +179,26 @@ const CreatePage: React.FC = () => {
         </EditorContainer>
 
         <ButtonSection>
-          <ButtonHeader>
+          <ButtonHeader direction="row" justifyContent="space-between">
             <h2>버튼</h2>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={checked}
+                  onChange={handleChange}
+                  color="primary"
+                  sx={{
+                    '& .MuiSwitch-switchBase.Mui-checked': {
+                      color: '#2196f3',
+                    },
+                    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                      backgroundColor: '#2196f3',
+                    },
+                  }}
+                />
+              }
+              label="스위치 레이블"
+            />
           </ButtonHeader>
           <ButtonContent>
             <StyledTextField
