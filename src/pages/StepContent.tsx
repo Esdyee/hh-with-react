@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -54,6 +54,10 @@ export default function MyCustomStepper() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  useEffect(() => {
+    console.log('네비게이션 타입:', performance.getEntriesByType('navigation'));
+  }, [activeStep]);
 
   return (
     // styled-components로 만든 컨테이너 사용
