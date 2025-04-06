@@ -1,0 +1,46 @@
+.circle-background {
+    fill: none;
+    stroke: #eee;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #3498db;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: progress 2s ease-out forwards;
+}
+
+.percentage-number {
+    animation: counting 2s forwards;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dashoffset: 628; /* dashArray 값과 동일하게 설정 */
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes counting {
+    0% {
+        tspan-content: "0";
+    }
+    20% {
+        tspan-content: "20";
+    }
+    40% {
+        tspan-content: "40";
+    }
+    60% {
+        tspan-content: "60";
+    }
+    80% {
+        tspan-content: "80";
+    }
+    100% {
+        tspan-content: "100";
+    }
+}
