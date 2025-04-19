@@ -19,6 +19,7 @@ import MySearchPage from './pages/MySearchPage';
 import CreatePage from './pages/CreatePage';
 import StepContent from './pages/StepContent';
 import PersistStatePage from './pages/PersistStatePage';
+import ReactHookFormTest from './pages/ReactHookForm';
 
 const router = createBrowserRouter(
   [
@@ -101,6 +102,10 @@ const router = createBrowserRouter(
         {
           path: '/persist-state',
           element: <PersistStatePage />,
+        },
+        {
+          path: '/react-hook-form-test',
+          element: <ReactHookFormTest />,
         },
       ],
     },

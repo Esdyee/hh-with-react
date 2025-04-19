@@ -31,6 +31,7 @@ const menuItems: MenuItem[] = [
   { path: '/create-page', label: 'Create Page(MCP)' },
   { path: '/step-content', label: 'Step Content' },
   { path: '/persist-state', label: 'Persist State' },
+  { path: '/react-hook-form-test', label: 'React Hook Form Test' },
 ];
 
 function App() {
