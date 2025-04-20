@@ -55,10 +55,6 @@ export default function MyCustomStepper() {
     setActiveStep(0);
   };
 
-  useEffect(() => {
-    console.log('네비게이션 타입:', performance.getEntriesByType('navigation'));
-  }, [activeStep]);
-
   return (
     // styled-components로 만든 컨테이너 사용
     <StyledStepperContainer>

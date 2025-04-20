@@ -10,8 +10,10 @@ const PersistStatePage = () => {
     const navigationEntries = performance.getEntriesByType(
       'navigation'
     ) as PerformanceNavigationTiming[];
+
     const navigationType = navigationEntries.length > 0 ? navigationEntries[0].type : null;
-    console.log('네비게이션 타입:', navigationType);
+
+    console.log(performance.getEntriesByType('navigation'), 'navigation');
 
     if (navigationType === 'reload') {
       console.log('브라우저 새로고침으로 진입');

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import CircularProgress from '@mui/material/CircularProgress'; // 로딩 인디케이터
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import CircularProgress from '@mui/material/CircularProgress'; // 로딩 인디케이터
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 // function to generate random strings
 const getRandomString = () => {
@@ -15,7 +15,7 @@ const getRandomString = () => {
 
 const pageSize = 30;
 
-export default function StickyHeadTable() {
+export default function InfiniteScroll() {
   const observerRef = useRef<IntersectionObserver | null>(null); // Observer 인스턴스 저장
   const triggerRef = useRef<HTMLTableRowElement | null>(null); // 감지할 요소(빈 행) ref
 
@@ -149,6 +149,7 @@ export default function StickyHeadTable() {
       <p>Page Fetched: {page}</p>
       <p>Has More: {hasMore.toString()}</p>
       <p>Loading: {loading.toString()}</p>
+      <p>Observer: {JSON.stringify(observerRef.current)}</p>
     </Paper>
   );
 }
