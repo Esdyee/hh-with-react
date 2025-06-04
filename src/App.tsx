@@ -17,7 +17,7 @@ const menuItems: MenuItem[] = [
   { path: '/full-calendar', label: 'Full Calendar Test' },
   { path: '/ckeditor', label: 'CKEditor Test' },
   { path: '/react-calendar', label: 'React Calendar' },
-  { path: '/react-hook', label: 'React Hook Test' },
+  // { path: '/react-hook', label: 'React Hook Test' },
   { path: '/react-quill', label: 'React Quill Test' },
   { path: '/change-character', label: 'Change Character' },
   { path: '/multi-upload', label: 'Multi Upload' },
@@ -32,6 +32,7 @@ const menuItems: MenuItem[] = [
   { path: '/step-content', label: 'Step Content' },
   { path: '/persist-state', label: 'Persist State' },
   { path: '/react-hook-form-test', label: 'React Hook Form Test' },
+  { path: '/excel-upload-view-tab', label: 'Excel Upload View Tab' },
 ];
 
 function App() {

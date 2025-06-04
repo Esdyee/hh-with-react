@@ -20,6 +20,8 @@ import CreatePage from './pages/CreatePage';
 import StepContent from './pages/StepContent';
 import PersistStatePage from './pages/PersistStatePage';
 import ReactHookFormTest from './pages/ReactHookForm';
+import ExcelUploadViewTab from './pages/ExcelUploadViewTab';
+import CSVFileUpload from './pages/CSVFileUpload';
 
 const router = createBrowserRouter(
   [
@@ -106,6 +108,14 @@ const router = createBrowserRouter(
         {
           path: '/react-hook-form-test',
           element: <ReactHookFormTest />,
+        },
+        {
+          path: '/excel-upload-view-tab',
+          element: <ExcelUploadViewTab />,
+        },
+        {
+          path: '/csv-file-upload',
+          element: <CSVFileUpload />,
         },
       ],
     },
